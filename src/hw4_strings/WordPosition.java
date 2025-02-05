@@ -15,6 +15,7 @@ public class WordPosition {
         int startAt = findWordPosition(source, target);
 
         System.out.println(startAt);
+        sc.close();
     }
 
     public static int findWordPosition(String source, String target) {

@@ -14,12 +14,12 @@ public class SymbolOccurance {
 
         int occurrences = findSymbolOccurance(text, symbol);
         System.out.println("Occurances of symbol " + symbol + " is:" + occurrences);
+        sc.close();
 
     }
 
     public static int findSymbolOccurance(String str, char ch) {
         int occurance = 0;
-        str = str.toLowerCase();
         for (int i = 0; i < str.length(); i++) {
             if (str.charAt(i) == ch) {
                 occurance++;
