@@ -9,7 +9,7 @@ public class WordGuesser {
 
         String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot",
                 "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive",
-                " pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
+                "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
 
         Random random = new Random();
         String trueWord = words[random.nextInt(words.length)];
