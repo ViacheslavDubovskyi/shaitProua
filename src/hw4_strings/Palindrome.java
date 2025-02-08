@@ -10,6 +10,7 @@ public class Palindrome {
         String str = sc.nextLine();
 
         System.out.println(isPalindrome(str));
+        sc.close();
 
     }
 
