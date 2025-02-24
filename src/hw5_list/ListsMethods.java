@@ -21,6 +21,7 @@ public class ListsMethods {
         System.out.println("Unique List: " + findUnique(demoUnique));
 
         calcOccurance(demoCount);
+        findOccurance(demoCount);
         sc.close();
 
     }
@@ -63,6 +64,22 @@ public class ListsMethods {
             Integer value = entry.getValue();
             System.out.println(key + ": " + value);
         }
+    }
+
+    public static void findOccurance(List<String> list) {
+        Map<String, Integer> mapStrings = new HashMap<>();
+        for (String str : list) {
+            mapStrings.put(str, mapStrings.getOrDefault(str, 0) + 1);
+        }
+
+        List<String> listOccurance = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : mapStrings.entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+            listOccurance.add('\n' + "{name: " + "'" + key + "'," + "occurance: " + value + "}");
+        }
+
+        System.out.println(listOccurance);
     }
 }
 
