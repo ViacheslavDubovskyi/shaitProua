@@ -20,6 +20,7 @@ public class ListsMethods {
         List<Integer> demoUnique = List.of(1, 2, 2, 3, 3, 3, 4, 5, 6, 7, 7, 7, 10, 10);
         System.out.println("Unique List: " + findUnique(demoUnique));
 
+        calcOccurance(demoCount);
         sc.close();
 
     }
@@ -50,5 +51,18 @@ public class ListsMethods {
 
     }
 
+    public static void calcOccurance(List<String> list) {
+
+        Map<String, Integer> mapStrings = new HashMap<>();
+        for (String str : list) {
+            mapStrings.put(str, mapStrings.getOrDefault(str, 0) + 1);
+        }
+
+        for (Map.Entry<String, Integer> entry : mapStrings.entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+            System.out.println(key + ": " + value);
+        }
+    }
 }
 
