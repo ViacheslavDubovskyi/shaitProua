@@ -28,7 +28,7 @@ public class WordGuesser {
                 break;
             } else {
                 for (int i = 0; i < trueWord.length(); i++) {
-                    if (userWord.length() > i && userWord.charAt(i) == trueWord.charAt(i)) {
+                    if (i < userWord.length() && userWord.charAt(i) == trueWord.charAt(i)) {
                         guess.setCharAt(i, trueWord.charAt(i));
                     }
                 }
