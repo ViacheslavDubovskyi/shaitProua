@@ -69,7 +69,10 @@ public class ListsMethods {
     public static void findOccurance(List<String> list) {
         Map<String, Integer> mapStrings = new HashMap<>();
         for (String str : list) {
-            mapStrings.put(str, mapStrings.getOrDefault(str, 0) + 1);
+            if (mapStrings.containsKey(str)) {
+                mapStrings.put(str, mapStrings.get(str) + 1);
+            } else
+                mapStrings.put(str, 1);
         }
 
         List<String> listOccurance = new ArrayList<>();
