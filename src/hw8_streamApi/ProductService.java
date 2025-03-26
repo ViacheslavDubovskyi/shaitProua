@@ -1,10 +1,7 @@
 package hw8_streamApi;
 
 import java.time.LocalDate;
-import java.util.Comparator;
-import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class ProductService {
@@ -29,7 +26,7 @@ public class ProductService {
         Optional<Product> optionalProduct = products.stream()
                 .filter(product -> product.getType().equals("Book"))
                 .min(Comparator.comparing(Product::getPrice));
-        return optionalProduct.orElseThrow(() -> new NoSuchElementException("Product [category]: Book] not found"));
+        return optionalProduct.orElseThrow(() -> new NoSuchElementException("Product [category]: Book not found"));
     }
 
     public List<Product> getLatestProducts(List<Product> products) {
@@ -47,5 +44,10 @@ public class ProductService {
                 .filter(product -> product.getPrice() <= 75)
                 .mapToDouble(Product::getPrice)
                 .sum();
+    }
+
+    public Map<String,List<Product>> groupByCategory(List<Product> products) {
+        return products.stream()
+                .collect(Collectors.groupingBy(Product::getType));
     }
 }

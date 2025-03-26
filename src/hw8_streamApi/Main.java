@@ -3,6 +3,7 @@ package hw8_streamApi;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
 
@@ -45,5 +46,11 @@ public class Main {
         //5
         double totalPrice = productService.getTotalPrice(products);
         System.out.println("The total price of books of current year: " + totalPrice);
+
+        //6
+        System.out.println("Grouping By Category: ");
+        Map<String, List<Product>> groupingByCategory = productService.groupByCategory(products);
+        System.out.println(groupingByCategory);
+
     }
 }
