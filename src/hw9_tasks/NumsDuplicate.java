@@ -19,7 +19,13 @@ public class NumsDuplicate {
 
     public static boolean checkDuplicate(int[] nums) {
         Set<Integer> unique = new HashSet<>();
-        Arrays.stream(nums).forEach(unique::add);
-        return !(unique.size() == nums.length);
+        for (int num : nums) {
+            if (!unique.add(num))
+                return true;
+            else {
+                unique.add(num);
+            }
+        }
+        return false;
     }
 }
