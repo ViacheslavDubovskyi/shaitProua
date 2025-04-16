@@ -1,11 +1,11 @@
 the : 9
+and : 9
+his : 6
+was : 5
 but : 4
 that : 4
-his : 6
-woman : 3
-her : 2
-and : 9
-one : 3
-was : 5
 for : 4
+woman : 3
+one : 3
+her : 2
 Total unique words:118

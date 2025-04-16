@@ -19,7 +19,7 @@ public class BookService {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                content.append(line).append(System.lineSeparator());
+                content.append(line).append("\n");
             }
         } catch (IOException e) {
             throw new RuntimeException("Cannot read the file " + file.getName(), e);
@@ -47,7 +47,11 @@ public class BookService {
                 .stream()
                 .sorted(Map.Entry.<String, Integer>comparingByValue().reversed())
                 .limit(10)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (existing, replacement) -> existing,
+                        LinkedHashMap::new));
     }
 
     public int countUniqueWords(String text) {
