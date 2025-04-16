@@ -6,15 +6,11 @@ import java.util.stream.Collectors;
 
 public class BookService {
 
-    public File getBook(String bookName) {
-        File file = new File("src/hw11_parser/" + bookName + ".txt");
-        if (!file.exists()) {
-            System.out.println("Book does not exist");
-        }
-        return file;
-    }
-
     public String getContent(File file) {
+        if (!file.exists()) {
+            System.out.println("Book " + file.getName() + " does not exist");
+            System.exit(0);
+        }
         StringBuilder content = new StringBuilder();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -25,7 +21,6 @@ public class BookService {
             throw new RuntimeException("Cannot read the file " + file.getName(), e);
         }
         return content.toString();
-
     }
 
     public Map<String, Integer> countWords(String text) {
@@ -39,7 +34,6 @@ public class BookService {
             }
         }
         return map;
-
     }
 
     public Map<String, Integer> getTopMap(String text) {

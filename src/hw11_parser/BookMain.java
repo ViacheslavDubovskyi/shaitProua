@@ -14,13 +14,12 @@ public class BookMain {
         BookService bookService = new BookService();
         BookStatistics bookStatistics = new BookStatistics();
 
-        File bookFile = bookService.getBook(bookName);
+        File bookFile = new File("src/hw11_parser/" + bookName + ".txt");
         String content = bookService.getContent(bookFile);
         bookStatistics.print(bookService, content);
 
         File infoBook = new File("src/hw11_parser/" + bookName + "_statistics.txt");
         bookStatistics.writeToFile(bookService, infoBook, content);
-
 
     }
 }
