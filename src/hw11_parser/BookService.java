@@ -25,7 +25,7 @@ public class BookService {
 
     public Map<String, Integer> countWords(String text) {
         Map<String, Integer> map = new HashMap<>();
-        String[] words = wordsSplitter(text);
+        String[] words = text.toLowerCase().split(("[^\\p{L}]+"));
         for (String word : words) {
             if (word.length() > 2) {
                 if (map.containsKey(word)) {
@@ -50,9 +50,5 @@ public class BookService {
 
     public int countUniqueWords(String text) {
         return countWords(text).size();
-    }
-
-    private String[] wordsSplitter(String text) {
-        return text.toLowerCase().split(("[^\\p{L}]+"));
     }
 }
